@@ -1,0 +1,54 @@
+# Папка сборки и все скомпилированные файлы
+build/
+*/build/
+Desktop-Debug/
+Desktop-Release/
+
+# Объектные файлы и временные файлы компиляции
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# Файлы Qt Creator (пользовательские настройки)
+*.pro.user
+*.user
+*.creator
+*.files
+*.includes
+
+# Сгенерированные файлы Qt
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qmlc
+*.jsc
+
+# Файлы сборки
+Makefile
+Makefile.Debug
+Makefile.Release
+
+# Файлы данных программы
+tasks.txt
+draft.txt
+*.txt
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
