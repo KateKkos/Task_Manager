@@ -19,6 +19,8 @@ public:
 
     const std::string toLine() const;   //получить строку с текстом задачи (планируется модифицировать)
     static Task fromLine(const std::string& line); //получить задачу с заданным текстом
+
+    void updateDescription(const std::string& newDesc); //обновить текст задачи
 };
 
 //объявляем, какие типы можно передавать между потоками

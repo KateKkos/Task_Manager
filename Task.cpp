@@ -66,3 +66,8 @@ Task Task::fromLine(const std::string& line)
 
     return task;
 }
+
+void Task::updateDescription(const std::string& newDesc)
+{
+    description = newDesc;
+}

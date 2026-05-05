@@ -59,3 +59,11 @@ std::vector<Task> TaskManager::getTasks() const
 {
     return tasks;
 }
+
+void TaskManager::editTask(int index, const std::string& newDescription)
+{
+    if (index >= 0 && index < static_cast<int>(tasks.size()))
+    {
+        tasks[index].updateDescription(newDescription);
+    }
+}

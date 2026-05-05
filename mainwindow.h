@@ -27,9 +27,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots:
-    void onAddTask(); //добавление задачи в глобальном смысле
-    void onDeleteTask(); //удаление задачи в глобальном смысле
+    void onAddTask(); //добавление задачи или сохранение изменений
+    void onDeleteTask(); //удаление задачи
     void onSaveDraftTimer(); //таймер, по истечению которого сохраняется строка ввода
+    void onEditTask(); //изменения текста задачи
 
 private:
     void refreshTaskList(); //обновление списка задач, отображаемого в окне пользователя
@@ -39,5 +40,6 @@ private:
     QThread* m_saveThread;
     Save* m_save;
     QTimer* m_draftTimer;
+    int m_editingIndex;
 };
 #endif // MAINWINDOW_H

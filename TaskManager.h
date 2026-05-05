@@ -20,6 +20,7 @@ public:
     const Task& getTaskAt(int index) const; //получить ссылку на задачу по индексу
     std::vector<Task> getTasks() const; //получить копию списка задач
     int getSize() const; //длина списка задач
+    void editTask(int index, const std::string& newDescription); //редактировать задачу по индексу
     void clear(); //очистить вектор
 };
 
