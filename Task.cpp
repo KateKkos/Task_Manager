@@ -25,7 +25,7 @@ static std::chrono::system_clock::time_point stringToTime(const std::string& str
 
 Task::Task()
     : description("")
-    , creationTime(std::chrono::system_clock::now()) {}
+    , timeStamp(std::chrono::system_clock::now()) {}
 
 const std::string Task::getDescription() const
 {
@@ -37,14 +37,14 @@ void Task::setDescription(const std::string& desc)
     description = desc;
 }
 
-std::chrono::system_clock::time_point Task::getCreationTime() const
+std::chrono::system_clock::time_point Task::getTimeStamp() const
 {
-    return creationTime;
+    return timeStamp;
 }
 
 const std::string Task::toLine() const
 {
-    return timeToString(creationTime) + " | " + description;
+    return timeToString(timeStamp) + " | " + description;
 }
 
 Task Task::fromLine(const std::string& line)
@@ -56,12 +56,12 @@ Task Task::fromLine(const std::string& line)
     {
         std::string timeStr = line.substr(0, separatorPos);
         task.description = line.substr(separatorPos + 3);
-        task.creationTime = stringToTime(timeStr);
+        task.timeStamp = stringToTime(timeStr);
     }
     else
     {
         task.description = line;
-        task.creationTime = std::chrono::system_clock::now();
+        task.timeStamp = std::chrono::system_clock::now();
     }
 
     return task;
@@ -70,4 +70,5 @@ Task Task::fromLine(const std::string& line)
 void Task::updateDescription(const std::string& newDesc)
 {
     description = newDesc;
+    timeStamp = std::chrono::system_clock::now();
 }

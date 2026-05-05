@@ -9,13 +9,13 @@ class Task
 {
 private:
     std::string description; //сам текст задачи
-    std::chrono::system_clock::time_point creationTime; //время создания задачи
+    std::chrono::system_clock::time_point timeStamp; //время последнего изменения
 public:
     Task(); //конструктор
 
     const std::string getDescription() const; //получить переменную с текстом задачи
     void setDescription(const std::string& desc); //задать текст задачи
-    std::chrono::system_clock::time_point getCreationTime() const; //получить время создани задачи
+    std::chrono::system_clock::time_point getTimeStamp() const; //получить время последнего изменения задачи
 
     const std::string toLine() const;   //получить строку с текстом задачи (планируется модифицировать)
     static Task fromLine(const std::string& line); //получить задачу с заданным текстом

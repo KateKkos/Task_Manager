@@ -140,7 +140,7 @@ void MainWindow::refreshTaskList()
     for (int i = 0; i < m_taskManager.getSize(); i++)
     {
         const Task& task = m_taskManager.getTaskAt(i);
-        std::time_t time = std::chrono::system_clock::to_time_t(task.getCreationTime());
+        std::time_t time = std::chrono::system_clock::to_time_t(task.getTimeStamp());
         std::tm* tm = std::localtime(&time);
 
         std::stringstream ss;
