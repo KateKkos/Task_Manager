@@ -7,7 +7,6 @@
 #include "Save.h"
 #include <QTimer>
 #include <string>
-#include <fstream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui

@@ -19,7 +19,7 @@ public slots:
     void saveDraft(const std::string text); //сохранение вводимой задачи
 
 private:
-    QString m_filename; //файл, куда происходит сохранение
+    std::string m_filename; //файл, куда происходит сохранение
 };
 
 #endif // SAVE_H

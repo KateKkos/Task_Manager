@@ -1,9 +1,7 @@
 #include "TaskManager.h"
+#include <fstream>
 
-#include <QFile>
-#include <QTextStream>
-
-TaskManager::TaskManager(const QString& file) : filename(file){}
+TaskManager::TaskManager(const std::string& file) : filename(file){}
 
 void TaskManager::addTask(const Task& task)
 {
@@ -20,18 +18,16 @@ void TaskManager::removeTask(int index)
 
 void TaskManager::loadFromFile()
 {
-    QFile file(filename);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    std::ifstream file(filename);
+    if (!file.is_open())
     {
         return;
     }
 
-    QTextStream in(&file);
-    tasks.clear();
-    while (!in.atEnd())
+    std::string line;
+    while (std::getline(file, line))
     {
-        QString line = in.readLine();
-        if (!line.isEmpty())
+        if (!line.empty())
         {
             tasks.push_back(Task::fromLine(line));
         }

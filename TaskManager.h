@@ -2,17 +2,17 @@
 #define TASKMANAGER_H
 
 #include <vector>
-#include <QString>
+#include <string>
 #include "Task.h"
 
 class TaskManager
 {
 private:
     std::vector<Task> tasks; //контейнер для хранения задач
-    QString filename; //хранилище задач, "база данных"
+    std::string filename; //хранилище задач, "база данных"
 
 public:
-    TaskManager(const QString& file); //конструктор
+    TaskManager(const std::string& file); //конструктор
 
     void addTask(const Task& task); //добавить задачу в вектор
     void removeTask(int index); //удалить задачу из вектора

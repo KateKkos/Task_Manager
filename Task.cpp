@@ -2,22 +2,22 @@
 
 Task::Task() : description("") {}
 
-QString Task::getDescription() const
+const std::string Task::getDescription() const
 {
     return description;
 }
 
-void Task::setDescription(const QString& desc)
+void Task::setDescription(const std::string& desc)
 {
     description = desc;
 }
 
-QString Task::toLine() const
+const std::string Task::toLine() const
 {
     return description;
 }
 
-Task Task::fromLine(const QString& line)
+Task Task::fromLine(const std::string& line)
 {
     Task task;
     task.setDescription(line);

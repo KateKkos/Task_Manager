@@ -1,6 +1,4 @@
 #include "Save.h"
-#include <QFile>
-#include <QTextStream>
 #include <fstream>
 
 Save::Save(QObject *parent)
@@ -11,16 +9,15 @@ Save::~Save() {}
 
 void Save::saveTasks(const std::vector<Task> &tasks)
 {
-    QFile file(m_filename);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    std::ofstream file(m_filename);
+    if (!file.is_open())
     {
         return;
     }
 
-    QTextStream out(&file);
-    for (const Task &task : tasks)
+    for(const Task &task : tasks)
     {
-        out << task.toLine() << "\n";
+        file << task.toLine() << "\n";
     }
     file.close();
 }

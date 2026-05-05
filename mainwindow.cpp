@@ -63,8 +63,8 @@ void MainWindow::loadDraft()
 
 void MainWindow::onAddTask()
 {
-    QString text = ui->lineEditTask->text();
-    if (text.isEmpty())
+    std::string text = ui->lineEditTask->text().toStdString();
+    if (text.empty())
     {
         return;
     }
@@ -99,6 +99,6 @@ void MainWindow::refreshTaskList()
     for (int i = 0; i < m_taskManager.getSize(); i++)
     {
         const Task& task = m_taskManager.getTaskAt(i);
-        ui->listWidget->addItem(task.getDescription());
+        ui->listWidget->addItem(QString::fromStdString(task.getDescription()));
     }
 }
