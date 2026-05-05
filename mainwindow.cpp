@@ -3,6 +3,9 @@
 #include <fstream>
 #include <string>
 #include <QTimer>
+#include <sstream>
+#include <ctime>
+#include <iomanip>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -99,6 +102,17 @@ void MainWindow::refreshTaskList()
     for (int i = 0; i < m_taskManager.getSize(); i++)
     {
         const Task& task = m_taskManager.getTaskAt(i);
-        ui->listWidget->addItem(QString::fromStdString(task.getDescription()));
+        std::time_t time = std::chrono::system_clock::to_time_t(task.getCreationTime());
+        std::tm* tm = std::localtime(&time);
+
+        std::stringstream ss;
+        ss << std::put_time(tm, "%d.%m.%Y %H:%M");
+        std::string dateTimeStr = ss.str();
+
+        QString displayText = QString::fromStdString(
+            "(" + dateTimeStr + ") " + task.getDescription()
+            );
+
+        ui->listWidget->addItem(displayText);
     }
 }
